@@ -1,0 +1,423 @@
+﻿@model EpicGame_MVC5.ViewModels.HomeViewModels
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section topCSS{
+    <link rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css'>
+    <link rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css'>
+    <link href="~/Assets/css/EpicGameStore.css" rel="stylesheet" />
+}
+
+@section endJS{
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.min.js'></script>
+    <script src="~/Assets/Js/script.js"></script>
+}
+
+<div class="container-fluid store-container">
+    <div class="row control-top">
+        <div class="col-12">
+            <div class="NavListArea">
+                <div class="NavList">
+                    <input value="" type="checkbox" id="checkControl" class="check_control">
+                    <label for="checkControl" class="checkBoxlabel">
+                        Discover<i class="fas fa-chevron-down"></i>
+                    </label>
+                    <div class="div_itemlist">
+                        <ul class="itemList">
+                            <li><a href="#">Discover</a></li>
+                            <li><a href="@Url.Action("Search","Home")">Browse</a></li>
+                        </ul>
+                    </div>
+                    <nav class="navbar navbar-dark">
+                        <form class="form-inline">
+                            <input class="searchArea form-control  bg-outline-dark col-12 col-xl-12" type="search" placeholder="search"
+                                   aria-label="Search" />
+                            <button class="searchbtn" disabled>
+                                <svg class="bi bi-search" width="1em"
+                                     height="1em" viewBox="0 0 16 16" fill="currentColor"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                          d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                                          clip-rule="evenodd" />
+                                    <path fill-rule="evenodd"
+                                          d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                                          clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sync1" class="sync1_padding owl-carousel owl-theme w-100" style="z-index:0">
+        @foreach (var ActivityView in Model.Activities)
+        {
+            <div class="item">
+                <img class="item_img" src="@ActivityView.IMG" alt="">
+                <div class="item_text">
+                    <div class="sync_text">
+                        <p>@ActivityView.ActivityName</p>
+                        <h3>@ActivityView.Slogan</h3>
+                        <p>@ActivityView.Information</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    @*<div class="row">
+            <div class="col-12">
+                <div class="free_title">
+                    <h3 class="free_title_text">免費遊戲</h3>
+                    <a class="free_title_more" href="@Url.Action("ProductMore","Home")">查看更多項目</a>
+                </div>
+            </div>
+
+
+            <div class="col-12">
+                <div class="free_content">
+                    <ul class="free_item_ul">
+                        <li class="col-12 col-md-6 free_item_li">
+                            <div class="free_content_img">
+                                <img src="~/Assets/images/EpicGameStoreImg/asset 4.jpeg" alt="">
+                            </div>
+                            <div class="free_content_text">
+                                <h4>Death Coming</h4>
+                                <p>目前免費，5月14日下午11:00截止</p>
+                            </div>
+                        </li>
+                        <li class="col-12 col-md-6 free_item_li">
+                            <div class="free_content_img">
+                                <img src="~/Assets/images/EpicGameStoreImg/asset 5.jpeg" alt="">
+                            </div>
+                            <div class="free_content_text">
+                                <h4>在02:04:04:23內解鎖</h4>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>*@
+    <div class="row">
+        <div class="col-12">
+            <div class="new_title">
+                <h3>BestDiscount</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+
+                    @foreach (var item in Model.BestDiscount)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@item.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@item.Url');"></div>
+                                    <!-- <img src="~/Assets/images/EpicGameStoreImg/asset 6.jpeg" alt=""> -->
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@item.ProductName</h4>
+                                    <p>@item.Developer |@item.Publisher</p>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(item.Price, 0)</h4>
+                                        @if (item.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (item.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(item.Discount * 100)%</h3>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="now_row_out">
+                <h3>Free Game</h3>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row_out_mode_1">
+                <ul class="mode_1_ul">
+                    @foreach (var free in Model.FreeGame)
+                    {
+                        <li class="mode_1_li">
+                            <div class="mode_1_text_img text_img_height">
+                                <div class="mode_1_text">
+                                    <h4>@free.ProductName</h4>
+                                    <p>Free Game</p>
+                                    <a class="btn btn-secondary" href="/Product/@free.ProductID">Learn More</a>
+                                </div>
+                                <div class="mode_1_img">
+                                    <img src="@free.Url" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="best">
+                <h3 class="best_text">TopSales</h3>
+                <a class="best_more" href="@Url.Action("Search","Home")">View More</a>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    @foreach (var topsales in Model.TopSales)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@topsales.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@topsales.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@topsales.ProductName</h4>
+                                    <p>@topsales.Developer | @topsales.Publisher</p>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(topsales.Price, 0)</h4>
+                                        @if (topsales.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (topsales.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(topsales.Discount * 100)%</h3>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="coming_soon_title">
+                <h3 class="coming_soon_text">MostRelated</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    @foreach (var related in Model.MostRelated)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@related.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@related.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@related.ProductName</h4>
+                                    <p>@related.Developer | @related.Publisher</p>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(related.Price, 0)</h4>
+                                        @if (related.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (related.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(related.Discount * 100)%</h3>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="update_title">
+                <h3 class="update_text">BestRank</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    @foreach (var best in Model.BestRank)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@best.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@best.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@best.ProductName</h4>
+                                    <p>@best.Developer | @best.Publisher</p>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(best.Price, 0)</h4>
+                                        @if (best.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (best.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(best.Discount * 100)%</h3>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="now_row_out">
+                <h3>Best Discount</h3>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row_out_mode_1">
+                <ul class="mode_1_ul">
+                    @foreach (var Discount in Model.TopDiscount)
+                    {
+                        <li class="mode_1_li">
+                            <div class="mode_1_text_img text_img_height">
+                                <div class="mode_1_text">
+                                    <h4>@Discount.ProductName</h4>
+                                    <p>Top Discount</p>
+                                    <a class="btn btn-secondary" href="/Product/@Discount.ProductID">Learn More</a>
+                                </div>
+                                <div class="mode_1_img">
+                                    <img src="@Discount.Url" alt="">
+                                </div>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="Rising_title">
+                <h3 class="Rising_text">FloorPrice</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    @foreach (var floorprice in Model.BestPrice)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@floorprice.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@floorprice.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@floorprice.ProductName</h4>
+                                    <p>@floorprice.Developer | @floorprice.Publisher</p>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(floorprice.Price, 0)</h4>
+                                        @if (floorprice.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (floorprice.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(floorprice.Discount * 100)%</h3>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="popular_title">
+                <h3 class="popular_text">MostFollowe</h3>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="new_mode_5">
+                <ul class="mode_5_ul">
+                    @foreach (var followe in Model.MostFollowe)
+                    {
+                        <li class="mode_5_li">
+                            <a href="/Product/@followe.ProductID">
+                                <div class="mode_5_img-2">
+                                    <div class="imgArea" style="background-image: url('@followe.Url');"></div>
+                                </div>
+                                <div class="mode_5_text">
+                                    <h4>@followe.ProductName</h4>
+                                    <p>@followe.Developer | @followe.Publisher</p>
+                                    <div class="mode_5_text_discount">
+                                        <h4>TW$@decimal.Round(followe.Price, 0)</h4>
+                                        @if (followe.Discount == 0)
+                                        {
+                                            <h3>free</h3>
+                                        }
+                                        else if (followe.Discount != 1)
+                                        {
+                                            <h3>@decimal.Round(followe.Discount * 100)%</h3>
+                                        }
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="now_row_out">
+                <h3>Epic Games Store Catalog</h3>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row_out_mode_1 row_out_mode_1_special">
+                <ul class="mode_1_ul">
+                    <li class="mode_1_li">
+                        <div class="mode_1_text_img">
+                            <div class="mode_1_text">
+                                <h4>Browse</h4>
+                                <p>Explore our catalog for your next favorite game!</p>
+                                <a class="btn btn-secondary" href="@Url.Action("Search","Home")">Browse All</a>
+                            </div>
+                            <div class="mode_1_img">
+                                <img src="~/Assets/images/EpicGameStoreImg/asset 38.jpeg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+
+.game_div_insidebox {
+    color: #fff;
+    text-align: center;
+    background-color: rgb(35,35,35);
+    padding: 15px;
+}
+
+.main_pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.game_div_insidebox h3 {
+    height: 40px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.product_pic {
+    position: relative;
+    padding-bottom: calc(4/3 * 100%);
+}
+
+.logo_pic {
+    display: none;
+}
+
+@media screen and (max-width : 992px) {
+    .game_div_insidebox {
+        padding: 30px;
+    }
+
+        .game_div_insidebox h3 {
+            height: 60px;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+}

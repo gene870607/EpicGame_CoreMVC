@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    background-color: rgba(15, 15, 15);
+    flex-direction: column;
+}
+
+.mainlayout-header {
+    height: 60px;
+    flex-direction: initial;
+    padding: initial;
+    width: 100%;
+}
+
+.m-header-options {
+    flex-direction: initial;
+}
+
+.main-layout-label {
+    display: initial;
+}
+
+.m-h-options-item {
+    display: none;
+    background-color: #202020;
+    left: initial;
+    height: calc(100vh - 60px);
+}
+
+.m-h-o-items-a {
+    text-align: initial;
+}
+
+.mainlayout-body {
+    width: initial;
+}
+
+.mainlayout-footer{
+    display:none;
+}
+
+.body-login-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0px;
+}
+
+/*.singin-external p {
+    margin-bottom: 0;
+}*/
+
+.singin-external h4 {
+    display: none;
+}
+
+.singin-external hr {
+    display: none;
+}
+
+.singin-external #Google {
+    cursor: pointer;
+    color: white;
+    background-color: #E44134;
+    font-size: 40px;
+    margin: 0px 5px;
+    width: 200px;
+    color: white;
+    border-radius: 3px;
+}
+
+.singin-external #Facebook {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(59, 89, 152);
+    font-size: 40px;
+    margin: 0px 5px;
+    width: 200px;
+    color: white;
+    border-radius: 3px;
+}
+
+.signin-root {
+    display: block;
+    background-color: #202020;
+    width: 500px;
+    height: 600px;
+    padding: 50px 10px;
+}
+
+.s-h-text-img{
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+}
+
+.s-h-text-h3{
+    font-family: sans-serif;
+    color: white;
+    font-weight: bold;
+    padding: 10px 0px;
+}
+
+.fa-facebook-f {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(66, 103, 178);
+    font-size: 40px;
+    margin: 0px 5px;
+    width: 50px;
+    color: white;
+}
+
+.form-control{
+    display: block;
+    width: 450px;
+    margin: 10px 0px;
+}
+
+.s-h-remember{
+    display: inline;
+}
+
+.s-h-forget{
+    display: inline;
+}
+
+.s-header-remember-forgot label{
+    color: white;
+}
+
+.s-header-remember-forgot a{
+    color: white;
+    margin-left: 140px;
+}
+
+.s-header-button{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.signin-btn{
+    background-color: #037BEE;
+    color: white;
+    font-family: sans-serif;
+    font-weight: normal;
+    border: none;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 5px;
+    width: 450px;
+    margin: 20px 0px;
+}
+
+.signin-btn:hover{
+    background-color: rgb(8, 99, 185);
+}
+
+.s-h-button-p{
+    display: flex;
+}
+
+.s-h-button-p p{
+    font-family: sans-serif;
+    color: rgb(244, 244, 244, 0.5);
+    padding: 0px 5px;
+}
+
+.s-h-button-p a{
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+

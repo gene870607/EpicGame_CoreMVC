@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    color: #fff;
+    background-color: #0f0f0f;
+}
+
+.library-container {
+    padding: 0 59px;
+}
+
+.row {
+    padding: 0;
+}
+
+.game_products {
+    padding: 0 15px;
+}
+
+.PageTitle {
+    margin-top: 60px;
+    padding: 20px 0;
+    display: flex;
+}
+
+.NavList {
+    display: flex;
+    font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+    .NavList li {
+        position: relative;
+        align-items: center;
+    }
+
+        .NavList li p {
+            margin: 0;
+        }
+
+        .NavList li + li {
+            margin-left: 40px;
+        }
+
+            .NavList li + li::before {
+                content: '';
+                border-left: 1px solid rgb(75,75,75);
+                height: 60%;
+                bottom: 20%;
+                left: -20px;
+                position: absolute;
+            }
+
+.filter_div {
+    display: flex;
+    padding-top: 15px;
+}
+
+.sortArea p {
+    margin: 0;
+    text-align: center;
+}
+
+.sortList-Controll {
+    height: 100%;
+}
+
+.sortLabel,
+.sort_label {
+    margin: 0;
+    height: 100%;
+}
+
+.NavList {
+    width: 100%;
+}
+
+    .NavList a {
+        color: #aaa;
+        text-decoration: none;
+    }
+
+        .NavList a :hover {
+            color: #fff;
+        }
+
+.card-body {
+    color: #000;
+}
+
+.path_div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.check_div {
+    margin-top: 20px;
+}
+
+.card {
+    padding-left: 15%;
+}
+
+.top_function {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.search_div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+    .search_div i {
+        margin-right: 20px;
+        color: #fff;
+    }
+
+.search_text {
+    padding-left: 10px;
+    height: 30px;
+    border: none;
+    background-color: #323232;
+    color: #777;
+}
+
+.sortList-Controll {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sortArea {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+}
+
+.sort_label {
+    font-weight: 200;
+    color: #ccc;
+}
+
+.sortSelectArea {
+    position: relative;
+    margin-left: 15px;
+}
+
+.sort_checked {
+    display: none;
+}
+
+    .sort_checked .fas {
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+    }
+
+.sort_list {
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 30px;
+    width: 160px;
+    background-color: #232323;
+    padding: 10px;
+    z-index: 2;
+}
+
+.sort_list li p {
+    margin-top:5px;
+}
+
+.sortLabel {
+    width: 100px;
+}
+
+    .sortLabel p,
+    .sortLabel .wishCount p {
+        display: inline-block;
+        font-weight: 300;
+    }
+
+.sort_list button {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    text-align: left;
+    color: #e7e7e7;
+}
+
+.sort_checked:checked ~ .sort_list {
+    display: initial;
+}
+
+.link_icon i {
+    color: #fff;
+}
+
+.link_icon i:hover {
+    color: rgb(9,83,210);
+    cursor: pointer;
+}
+
+.game_div {
+    border: 2px solid #0f0f0f;
+    padding:15px;
+}
+
+@media screen and (max-width: 1200px) {
+    .search_div {
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .PageTitle {
+        margin-top: 0;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .sortList-Controll,
+    .filterList-Controll {
+        height: 50%;
+    }
+
+    .filter_div {
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

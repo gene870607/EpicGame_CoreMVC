@@ -1,0 +1,40 @@
+.game_div_insidebox img {
+    max-width: 97px;
+}
+
+.game_div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.game_div_insidebox {
+    height:70px;
+    width: 100%;
+    background-color: rgb(35,35,35);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 45px 15px 15px;
+}
+
+    .game_div_insidebox h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+.product_pic {
+    padding: 10px;
+}
+
+.main_pic {
+    display: none;
+}
+
+@media screen and (max-width : 768px) {
+
+    .logo_pic {
+        display: none;
+    }
+}
